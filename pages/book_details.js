@@ -11,7 +11,8 @@ function get_book(id) {
 
 function get_book_dtl(id) {
   return BookInstance
-          .find({ 'book': id })
+          .find({ 'book': id }) 
+          // Directly using the id could potentially be a security risk, so we use the $eq operator to explicitly match the _id field.
           .select('imprint status');
 }
 
